@@ -45,9 +45,9 @@
         android:text="OPTION A"
         android:id="@+id/buttonA"
         android:background="#ff77b9ff"
-        android:layout_above="@+id/buttonC"
+        android:layout_above="@+id/buttonB"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35dp" />
+        android:layout_marginBottom="22dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -55,10 +55,8 @@
         android:text="OPTION B"
         android:id="@+id/buttonB"
         android:background="#ff85ffab"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/buttonC"
-        android:layout_alignLeft="@+id/buttonA"
-        android:layout_alignStart="@+id/buttonA" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -66,8 +64,9 @@
         android:text="OPTION C"
         android:id="@+id/buttonC"
         android:background="#ffff8bc5"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/buttonB"
         android:layout_alignLeft="@+id/buttonB"
-        android:layout_alignStart="@+id/buttonB" />
+        android:layout_alignStart="@+id/buttonB"
+        android:layout_marginTop="22dp" />
 
 </RelativeLayout>

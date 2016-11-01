@@ -8,6 +8,7 @@ import android.support.v7.internal.view.menu.MenuBuilder;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Set;
@@ -16,11 +17,13 @@ import java.util.Set;
 public class MainActivity extends ActionBarActivity {
 
     Set<BluetoothDevice> paired;
+    TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Menu mainMenu = new MenuBuilder(this);
+        text = (TextView)findViewById(R.id.textView);
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
         if (adapter == null || !adapter.isEnabled()) {
             Toast.makeText(this, "Bluetooth unavailable", Toast.LENGTH_LONG);
@@ -47,14 +50,16 @@ public class MainActivity extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-
+        String name = item.getTitle().toString();
+        text.setText(name);
         return super.onOptionsItemSelected(item);
     }
 
     public boolean onPrepareOptionsMenu(Menu menu) {
+        int order = 0;
         if (paired.size() > 0) {
             for (BluetoothDevice bd : paired) {
+                ++order;
                 menu.add(bd.getName());
             }
         }
